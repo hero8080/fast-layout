@@ -1,0 +1,13 @@
+# system
+.DS_Store
+node_modules/
+
+# editor
+.project
+.idea
+.vscode
+
+
+# Lock File
+package-lock.json
+yarn.lock

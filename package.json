@@ -1,0 +1,25 @@
+{
+  "name": "fast-layout",
+  "version": "1.0.5",
+  "description": "zhouxiansheng",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hero8080/layout.git"
+  },
+  "keywords": [
+    "layout"
+  ],
+  "author": "zhou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hero8080/layout/issues"
+  },
+  "bin": {
+    "fast-layout": "./bin/shell.js"
+  },
+  "homepage": "https://github.com/hero8080/layout#readme"
+}
