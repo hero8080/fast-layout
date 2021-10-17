@@ -268,6 +268,9 @@ input,textarea{
     flex-direction: column;
     align-items: stretch;
 }
+.flex_items_stretch{
+    align-items: stretch;
+}
 .flex_column_center{
     display: flex;
     align-items: center;
