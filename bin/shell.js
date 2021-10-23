@@ -461,6 +461,42 @@ for (let i = 5; i < 11; i++) {
   addLayput(num)
 }
 
+//定位类
+layout+=`\n
+/*定位类*/
+.absolute_top{
+  position: absolute;
+  top:0;
+}
+.absolute_bottom{
+  position: absolute;
+  bottom:0;
+}
+.absolute_left{
+  position: absolute;
+  left:0;
+}
+.absolute_right{
+  position: absolute;
+  right:0;
+}
+.absolute_center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% -50%);
+  right:0;
+}
+.absolute_centerX{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.absolute_centerY{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}`
 //层级类
 layout += `\n
 /*层级类*/`

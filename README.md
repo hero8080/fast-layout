@@ -1,6 +1,12 @@
 
 Language : 🇺🇸 | [🇨🇳](./README.zh-CN.md) 
 # fast-layout
+## videoExample
+[part1：install vue3.0](https://www.bilibili.com/video/BV1rh411b7Lq?share_source=copy_web)
+
+[part2：install fast-layout](https://www.bilibili.com/video/BV1rh411b7Lq?share_source=copy_web)
+
+[part3：Using fast layout to realize keyboard layout](https://www.bilibili.com/video/BV1rh411b7Lq?share_source=copy_web)
 ## introduce
 #### Using fast layout can meet more than 95% of the layout requirements in the work, and there is no need to write or write a small amount of CSS code to complete the complex layout, so that there is no difficult layout in the world
 ## start
