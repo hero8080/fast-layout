@@ -54,7 +54,12 @@ web-img{
   transform: translateZ(0);
 }
 /*盒模型*/
-body, p, div, span, form, input, a,web-img,uni-image{
+/*body, p, div, span, form, input, a,web-img,uni-image{
+    box-sizing: border-box;
+    line-height: 1;
+    position: relative;
+}*/
+.g_box{
     box-sizing: border-box;
     line-height: 1;
     position: relative;
@@ -155,7 +160,9 @@ input,textarea{
 .g_absolute{
     position: absolute;
 }
-
+.g_relative{
+    position: relative;
+}
 /*滚动条*/
 /*::-webkit-scrollbar-track-piece {
     background: 0 0;
@@ -182,8 +189,14 @@ input,textarea{
 .g_scroll_y {
     overflow-y: auto;
 }
+.g_scroll_y_always {
+    overflow-y: scroll;
+}
 .g_scroll_x {
     overflow-x: auto;
+}
+.g_scroll_x_always {
+    overflow-x: scroll;
 }
 /*内容横向滚动*/
 .g_content_scroll_x {
@@ -194,7 +207,7 @@ input,textarea{
 .g_content_nowrap{
     white-space: nowrap;
 }
-.g_content_scroll_x > p, .g_content_scroll_x > div, .g_content_scroll_x > view {
+.g_content_scroll_x > p, .g_content_scroll_x > div, .g_content_scroll_x > view ,.g_inline_block {
   display: inline-block;
 }
 /*全局布局*/
@@ -347,6 +360,9 @@ input,textarea{
 }
 .text_right{
     text-align: right;
+}
+.text_justify{
+    text-align: justify;
 }
 .block_center{
     margin: auto;
@@ -695,7 +711,17 @@ let createGrid=()=>{
   }
 }
 // createGrid()
-
+layout+=`
+.g_box_shadow,.g_box_shadow_hover{
+  box-shadow: 0 2px 12px 0 rgb(0,0,0,0.1);
+}
+.g_box_shadow_hover{
+  transition: all 0.3s;
+}
+.g_box_shadow_hover:hover{
+  box-shadow: 0 2px 12px 0 rgb(0,0,0,0.2);
+}
+`
 // console.log(layout)
 //生成文件
 const path = require('path')
