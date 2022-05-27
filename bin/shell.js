@@ -175,6 +175,9 @@ input,textarea{
 .g_relative{
     position: relative;
 }
+.g_fixed{
+    position: fixed;
+}
 /*滚动条*/
 /*::-webkit-scrollbar-track-piece {
     background: 0 0;
