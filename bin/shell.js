@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const fs = require('fs')
+const path = require('path')
 //获取配置||默认配置
 let config={}
 try {
@@ -16,6 +17,16 @@ if(filePath.substr(0,1)==='/'){
 }
 let dirPath=__dirname.replace(/\\/ig,'\/').split('node_modules')[0]
 let exportsPath =dirPath+ filePath
+
+//默认文件
+if(process.argv.indexOf('--init')){
+  let initFilePath=dirPath+'fast_layout.config.js'
+  console.log({initFilePath})
+  fs.copyFile(path.resolve(__dirname,'../fast_layout_default.config.js'), initFilePath,0, ()=>{
+    console.log('复制完成')
+  })
+  return
+}
 
 //布局生成
 let layout = ''
@@ -724,7 +735,7 @@ layout+=`
 `
 // console.log(layout)
 //生成文件
-const path = require('path')
+
 let pathsInfo = path.parse(exportsPath)
 fs.mkdirSync(pathsInfo.dir, {recursive: true})
 fs.writeFile(exportsPath, layout, (error) => {
