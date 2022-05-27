@@ -19,7 +19,8 @@ let dirPath=__dirname.replace(/\\/ig,'\/').split('node_modules')[0]
 let exportsPath =dirPath+ filePath
 
 //默认文件
-if(process.argv.indexOf('--init')){
+//存在init
+if(process.argv.indexOf('--init')!==-1){
   let initFilePath=dirPath+'fast_layout.config.js'
   console.log({initFilePath})
   fs.copyFile(path.resolve(__dirname,'../fast_layout_default.config.js'), initFilePath,0, ()=>{
