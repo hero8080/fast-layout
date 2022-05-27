@@ -10,7 +10,7 @@ Language : 🇺🇸 | [🇨🇳](./README.zh-CN.md)
 ## introduce
 #### Using fast layout can meet more than 95% of the layout requirements in the work, and there is no need to write or write a small amount of CSS code to complete the complex layout, so that there is no difficult layout in the world
 ## start
-`create a file named fast_layout.config.js in rootpath and type commond fast-layout on the console to create  a file of result`
+Enter  `fast-layout --init`  in the root directory of the console project, and the system will automatically create a `fast_layout.config.js` configuration file
 ## fileContent
 ```js
 module.exports= {

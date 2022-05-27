@@ -9,7 +9,7 @@
 ## 介绍
 #### 使用fast-layout可以满足工作中95%以上的布局需求，并且不用写或者写少量的css代码完成复杂布局，让天下没有难做的布局
 ## 开始使用
-`在根目录创建一个为fast_layout.config.js的文件`
+在控制台项目根目录输入 `fast-layout --init` 系统会自动在根目录创建一个为`fast_layout.config.js`的配置文件
 ## 文件内容
 ```js
 module.exports= {
