@@ -4,7 +4,9 @@ const path = require('path')
 //获取配置||默认配置
 let config={}
 try {
-  config=require('../../../fast_layout.config.js')
+  //取根目录的配置
+  let configFilePath=path.resolve(__dirname.split('node_modules')[0]+'/fast_layout.config.js')
+  config=require(configFilePath)
 }catch (_){
   config=require('../fast_layout_default.config.js')
 }
@@ -37,41 +39,24 @@ layout += `/*字体*/
 body,input,textarea,button,select{
     font-family: "PingFang SC","Lantinghei SC","Microsoft YaHei","HanHei SC","Helvetica Neue","Open Sans",Arial,"Hiragino Sans GB","微软雅黑",STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
 }
-*,div,p,span,view,text,input{
-    /* box-shadow: 0 0 0 1px red; */
-}
-/*debug*/
-.debug div,.debug p,.debug span,.debug view,.debug text,.debug input{
-    box-shadow: 0 0 0 1px red;
-}
 /*边距*/
 body,p,form,h1,h2,h3,h4,h5,h6,ul,ul>li,input,textarea{
     margin: 0;
     padding: 0;
 }
-
-/*属性选择器*/
-web-img{
-    display:block;
+/*debug*/
+.debug *{
+    box-shadow: 0 0 0 1px red;
 }
 [class*="g_radius"]{
     overflow: hidden;
-}
-[class*="g_grid"]{
-    display: flex;
-    flex-wrap: wrap;
 }
 /*开启硬件加速*/
 .open_hardware_speedup{
   transform: translateZ(0);
 }
 /*盒模型*/
-/*body, p, div, span, form, input, a,web-img,uni-image{
-    box-sizing: border-box;
-    line-height: 1;
-    position: relative;
-}*/
-.g_box{
+.g_box_relative{
     box-sizing: border-box;
     line-height: 1;
     position: relative;
@@ -86,52 +71,31 @@ a:focus{
   outline: none !important;
 }
 /*fieldset*/
-fieldset {
+.g_fieldset {
     border: 1px solid #c0c0c0;
     margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
 }
-/*图片*/
-img{
-    border: none;
-    outline: none;
-    display: block;
-    height: auto;
-}
-/*面板类*/
-.g_panel {
-  display: flex;
-  align-items: stretch;
-}
-.g_panel > div {
-  width: 100%;
-}
 /*删除表格里单元格间的间距*/
-table {
+.g_table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/*输入框*/
-input,textarea{
-    outline: none;
-    border: none;
-}
-
 /*文字溢出*/
-._ellipsis {
+.g_ellipsis {
     text-align: justify;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-._ellipsis_flex {
+.g_ellipsis_flex {
     text-align: justify;
     width: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.ellipsis {
+.g_ellipsis1 {
     text-align: justify;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -140,7 +104,7 @@ input,textarea{
     -webkit-box-orient: vertical;
     line-height: initial;
 }
-.ellipsis2 {
+.g_ellipsis2 {
     text-align: justify;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -149,7 +113,7 @@ input,textarea{
     -webkit-box-orient: vertical;
     line-height: initial;
 }
-.ellipsis3 {
+.g_ellipsis3 {
     text-align: justify;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -158,7 +122,7 @@ input,textarea{
     -webkit-box-orient: vertical;
     line-height: initial;
 }
-.ellipsis4 {
+.g_ellipsis4 {
     text-align: justify;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -224,17 +188,6 @@ input,textarea{
 }
 .g_content_scroll_x > p, .g_content_scroll_x > div, .g_content_scroll_x > view ,.g_inline_block {
   display: inline-block;
-}
-/*全局布局*/
-.g_con{
-    min-width: 1000px;
-    width: 75%;
-    max-width: 1500px;
-    margin: auto;
-}
-.g_con1200{
-    width: 1200px;
-    margin: auto;
 }
 .block{
     display: block;
@@ -341,6 +294,10 @@ input,textarea{
 }
 .g_img img{
     width: 100%;
+    border: none;
+    outline: none;
+    display: block;
+    height: auto;
 }
 .child_block>a,.child_block>div,.child_block>p,.block{
     display: block;
@@ -386,20 +343,6 @@ input,textarea{
 /*动画*/
 .g_transition{
     transition: all 0.3s;
-}
-
-/*点击效果*/
-[data-event-opts*=tap]{
-    transition: all 0.2s;
-}
-[data-event-opts*=tap]:active{
-  background-color: rgba(0,0,0,0.1);
-}
-[data-ntap] {
-    transition: none !important;
-}
-[data-ntap]:active{
-    background-color: initial !important;
 }
 
 /*圆角*/
@@ -479,10 +422,8 @@ layout += `\n
 * g_marxx_s //表示对子元素进行margin调整
 */
 `
-addLayput(14)
-addLayput(18)
-for (let i = 1; i < 11; i++) {
-  let num = i * 4
+for (let i = 1; i < 25; i++) {
+  let num = i * 2
   addLayput(num)
 }
 layout += `\n
@@ -578,7 +519,7 @@ for (let i = 16; i < 30; i++) {
 //行高类
 layout += `\n
 /*行高类*/`
-for (let i = 1; i <= 10; i++) {
+for (let i = 0; i <= 10; i++) {
   let num = 1 + i/10
   let _className=String(num).split('.').join('_')
   layout += `
@@ -604,8 +545,8 @@ layout += `
 }
 `
 layout += `\n`
-for (let i = 1; i < 15; i++) {
-  let num = i * 4
+for (let i = 1; i < 30; i++) {
+  let num = i * 2
   layout += `
 .g_wid${num}{
     width: ${num}px;
@@ -618,8 +559,8 @@ for (let i = 1; i < 15; i++) {
     height: ${num}px;
 }`
 }
-for (let i = 5; i < 16; i++) {
-  let num = 10 + i * 10
+for (let i = 6; i < 40; i++) {
+  let num =  i * 10
   layout += `
 .g_wid${num}{
     width: ${num}px;
@@ -635,7 +576,7 @@ for (let i = 5; i < 16; i++) {
 layout += `\n
 /*宽高类_高阶*/`
 for (let i = 1; i < 10; i++) {
-  let num = 150 + i * 50
+  let num = 350 + i * 50
   layout += `
 .g_wid${num}{
     width: ${num}px;
@@ -679,9 +620,9 @@ for (let key in colors) {
   if (keyIndex == 0) {
     let colorStr = '\n:root,page{\n'
     for (let key2 in colors) {
-      colorStr += `        --g_color_${key2}:${colors[key2]};\n`
+      colorStr += `    --g_color_${key2}:${colors[key2]};\n`
     }
-    colorStr += '    }'
+    colorStr += '}'
     layout += colorStr
   }
   keyIndex++
@@ -696,6 +637,12 @@ for (let key in colors) {
 
 //栅格布局
 let createGrid=()=>{
+  layout+=`
+[class*="g_grid"]{
+    display: flex;
+    flex-wrap: wrap;
+}
+`
   layout += `\n
 /*栅格布局*/`
   for (let i = 2; i < 9; i++) {
@@ -726,7 +673,8 @@ let createGrid=()=>{
   }
 }
 // createGrid()
-layout+=`
+let createBoxShadow=()=>{
+  layout+=`
 .g_box_shadow,.g_box_shadow_hover{
   box-shadow: 0 2px 12px 0 rgb(0,0,0,0.1);
 }
@@ -737,6 +685,7 @@ layout+=`
   box-shadow: 0 2px 12px 0 rgb(0,0,0,0.2);
 }
 `
+}
 // console.log(layout)
 //生成文件
 

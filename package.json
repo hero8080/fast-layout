@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hero8080/layout.git"
+    "url": "git+https://github.com/hero8080/fast-layout.git"
   },
   "keywords": [
     "layout"
@@ -16,10 +16,10 @@
   "author": "zhou",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hero8080/layout/issues"
+    "url": "https://github.com/hero8080/fast-layout/issues"
   },
   "bin": {
     "fast-layout": "./bin/shell.js"
   },
-  "homepage": "https://github.com/hero8080/layout#readme"
+  "homepage": "https://github.com/hero8080/fast-layout#readme"
 }
