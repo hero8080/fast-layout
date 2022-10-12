@@ -366,7 +366,14 @@ a:focus{
 }
 .g_pointer{
     cursor: pointer;
-}`
+}
+.always_scroll_y{
+    overflow-y: scroll;
+}
+.g_shadow{
+  box-shadow: 0 6px 20px 0 rgba(0,0,0,.1);
+}
+`
 let addLayput = (num) => {
   layout += `\n
 .g_pad${num}t,.g_pad${num}t_s>div,.g_pad${num}t_s>p,.g_pad${num}t_s>a{
